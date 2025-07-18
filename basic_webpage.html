@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simona Benedict - Art, Business & Spiritual Journey</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F59E0B 100%);
+            --secondary-gradient: linear-gradient(135deg, #0EA5E9 0%, #8B5CF6 100%);
+            --art-gradient: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+            --business-gradient: linear-gradient(135deg, #059669 0%, #0EA5E9 100%);
+            --spiritual-gradient: linear-gradient(135deg, #7C3AED 0%, #C084FC 100%);
+            --dark-bg: #0f0f23;
+            --darker-bg: #0a0a1a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-light: #f8fafc;
+            --text-muted: #cbd5e1;
+            --accent-gold: #fbbf24;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--dark-bg);
+            overflow-x: hidden;
+        }
+        
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
+                        var(--dark-bg);
+            animation: gradientShift 20s ease infinite;
+            z-index: -1;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            background: rgba(15, 15, 35, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--text-light);
+            border: 2px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+        }
+        
+        .section {
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .three-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .pillar {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--art-gradient);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .pillar.business::before {
+            background: var(--business-gradient);
+        }
+        
+        .pillar.spiritual::before {
+            background: var(--spiritual-gradient);
+        }
+        
+        .pillar:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .pillar:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pillar-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: var(--art-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .pillar.business .pillar-icon {
+            background: var(--business-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .pillar.spiritual .pillar-icon {
+            background: var(--spiritual-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .pillar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        .pillar p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pillar-details {
+            text-align: left;
+            margin-top: 2rem;
+        }
+        
+        .pillar-details h4 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .artwork-list, .qualification-list, .pilgrimage-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .artwork-list li, .qualification-list li, .pilgrimage-list li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .artwork-list li::before {
+            content: '🎨';
+            position: absolute;
+            left: 0;
+        }
+        
+        .qualification-list li::before {
+            content: '📊';
+            position: absolute;
+            left: 0;
+        }
+        
+        .pilgrimage-list li::before {
+            content: '🙏';
+            position: absolute;
+            left: 0;
+        }
+        
+        .contact-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 4rem;
+            backdrop-filter: blur(15px);
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-item h4 {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+        
+        footer {
+            background: var(--darker-bg);
+            border-top: 1px solid var(--glass-border);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .three-pillars {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .pillar, .contact-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">Simona Benedict</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#art">Art</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#spiritual">Spiritual</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Simona Benedict</h1>
+            <p class="subtitle">Artist • Entrepreneur • Spiritual Seeker</p>
+            <p class="description">
+                Welcome to my multifaceted journey where art, business, and spirituality converge. 
+                I create meaningful connections through creative expression, strategic business ventures, 
+                and profound spiritual experiences.
+            </p>
+            <div class="cta-buttons">
+                <a href="#about" class="btn btn-primary">Discover My Journey</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Three Pillars of My Journey</h2>
+            <p class="section-subtitle">
+                My life is built upon three foundational pillars that shape my purpose and drive my passion.
+            </p>
+            
+            <div class="three-pillars">
+                <div class="pillar art fade-in">
+                    <div class="pillar-icon">🎨</div>
+                    <h3>ART by Simona</h3>
+                    <p>Through creative expression, I explore the depths of human emotion and the beauty of our world. Each piece tells a story, captures a moment, and connects souls.</p>
+                    
+                    <div class="pillar-details">
+                        <h4>Featured Artworks:</h4>
+                        <ul class="artwork-list">
+                            <li>Cuore di Spirale - A spiral of emotion and energy</li>
+                            <li>Albero delle Stagioni - Nature's eternal cycle</li>
+                            <li>Sole Radiante - The warmth of light and hope</li>
+                            <li>Resin Piece Collection - Modern abstract expressions</li>
+                            <li>Albero - Life's enduring strength</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pillar business fade-in">
+                    <div class="pillar-icon">📊</div>
+                    <h3>Conscious Business</h3>
+                    <p>With a strong foundation in economics and a passion for the Croatian market, I bridge opportunities between Italy and Croatia, especially in tourism and hospitality.</p>
+                    
+                    <div class="pillar-details">
+                        <h4>Professional Expertise:</h4>
+                        <ul class="qualification-list">
+                            <li>Degree in Economics and Commerce</li>
+                            <li>Specialization in Foreign Trade</li>
+                            <li>MBA - Master of Business Administration</li>
+                            <li>Licensed Real Estate Agent in Italy</li>
+                            <li>Croatian Market Specialist</li>
+                            <li>Tourism & Hospitality Investment Focus</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pillar spiritual fade-in">
+                    <div class="pillar-icon">🙏</div>
+                    <h3>Spiritual Path</h3>
+                    <p>My Christian spiritual journey has taken me to sacred places around the world, each pilgrimage deepening my understanding of faith and purpose.</p>
+                    
+                    <div class="pillar-details">
+                        <h4>Sacred Pilgrimages:</h4>
+                        <ul class="pilgrimage-list">
+                            <li>Santiago de Compostela - The ancient way</li>
+                            <li>Mont Saint-Michel, France - Island of faith</li>
+                            <li>San Michele Sacred Sites, Italy - Archangel's protection</li>
+                            <li>Jerusalem - The holy city</li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-style: italic; color: var(--accent-gold);">
+                            "These pilgrimages form a deep foundation for my inner and outer path."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-section fade-in">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">
+                    Whether you're interested in my art, business opportunities, or spiritual journey, I'd love to hear from you.
+                </p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <h4>Email</h4>
+                        <a href="mailto:simonabenedictinfo@gmail.com">simonabenedictinfo@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <h4>Telegram</h4>
+                        <a href="https://t.me/simonabenedict" target="_blank">@simonabenedict</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📸</div>
+                        <h4>Instagram</h4>
+                        <a href="https://instagram.com/simona_benedict" target="_blank">@simona_benedict</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">👥</div>
+                        <h4>Facebook</h4>
+                        <a href="https://facebook.com/benedict.simona" target="_blank">benedict.simona</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🎵</div>
+                        <h4>TikTok</h4>
+                        <a href="https://tiktok.com/@simona.benedict" target="_blank">@simona.benedict</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Simona Benedict. All rights reserved.</p>
+                <p class="footer-tagline">Where Art, Business, and Spirit Unite</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.9)';
+            }
+        });
+        
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Add stagger effect to pillars
+        document.querySelectorAll('.pillar').forEach((pillar, index) => {
+            pillar.style.transitionDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
